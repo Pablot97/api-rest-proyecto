@@ -1,0 +1,223 @@
+
+openapi: 3.0.3
+info:
+  title: API REST - Autores y Posts
+  description: API para gestionar autores y publicaciones utilizando Node.js, Express y PostgreSQL.
+  version: 1.0.0
+
+servers:
+  - url: http://localhost:3000
+    description: Servidor local
+
+paths:
+  /authors:
+    get:
+      summary: Obtener todos los autores
+      responses:
+        "200":
+          description: Lista de autores
+        "500":
+          description: Error del servidor
+
+    post:
+      summary: Crear un autor
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - name
+                - email
+              properties:
+                name:
+                  type: string
+                  example: Pablo Tulian
+                email:
+                  type: string
+                  format: email
+                  example: pablo@example.com
+                bio:
+                  type: string
+                  example: Desarrollador en formación
+      responses:
+        "201":
+          description: Autor creado correctamente
+        "400":
+          description: Datos inválidos
+        "500":
+          description: Error del servidor
+
+  /authors/{id}:
+    parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+    get:
+      summary: Obtener un autor por ID
+      responses:
+        "200":
+          description: Autor encontrado
+        "404":
+          description: Autor no encontrado
+        "500":
+          description: Error del servidor
+
+    put:
+      summary: Actualizar un autor
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - name
+                - email
+              properties:
+                name:
+                  type: string
+                email:
+                  type: string
+                  format: email
+                bio:
+                  type: string
+      responses:
+        "200":
+          description: Autor actualizado
+        "400":
+          description: Datos inválidos
+        "404":
+          description: Autor no encontrado
+        "500":
+          description: Error del servidor
+
+    delete:
+      summary: Eliminar un autor
+      responses:
+        "204":
+          description: Autor eliminado
+        "404":
+          description: Autor no encontrado
+        "500":
+          description: Error del servidor
+
+  /posts:
+    get:
+      summary: Obtener todas las publicaciones
+      responses:
+        "200":
+          description: Lista de publicaciones
+        "500":
+          description: Error del servidor
+
+    post:
+      summary: Crear una publicación
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - title
+                - content
+                - author_id
+              properties:
+                title:
+                  type: string
+                  example: Mi primera publicación
+                content:
+                  type: string
+                  example: Contenido de prueba
+                author_id:
+                  type: integer
+                  example: 1
+                published:
+                  type: boolean
+                  default: false
+      responses:
+        "201":
+          description: Publicación creada
+        "400":
+          description: Datos inválidos o autor inexistente
+        "500":
+          description: Error del servidor
+
+  /posts/{id}:
+    parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+    get:
+      summary: Obtener una publicación por ID
+      responses:
+        "200":
+          description: Publicación encontrada
+        "404":
+          description: Publicación no encontrada
+        "500":
+          description: Error del servidor
+
+    put:
+      summary: Actualizar una publicación
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - title
+                - content
+                - author_id
+              properties:
+                title:
+                  type: string
+                content:
+                  type: string
+                author_id:
+                  type: integer
+                published:
+                  type: boolean
+      responses:
+        "200":
+          description: Publicación actualizada
+        "400":
+          description: Datos inválidos o autor inexistente
+        "404":
+          description: Publicación no encontrada
+        "500":
+          description: Error del servidor
+
+    delete:
+      summary: Eliminar una publicación
+      responses:
+        "204":
+          description: Publicación eliminada
+        "404":
+          description: Publicación no encontrada
+        "500":
+          description: Error del servidor
+
+  /posts/author/{authorId}:
+    get:
+      summary: Obtener las publicaciones de un autor
+      parameters:
+        - name: authorId
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Autor y sus publicaciones
+        "404":
+          description: Autor no encontrado
+        "500":
+          description: Error del servidor
