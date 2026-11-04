@@ -4,39 +4,83 @@
 
 API REST desarrollada con Node.js, Express y PostgreSQL para gestionar autores y publicaciones (posts).
 
+El proyecto implementa operaciones CRUD, validaciones, manejo de errores y pruebas automatizadas.
+
 ## Tecnologías utilizadas
 
 - Node.js
 - Express
 - PostgreSQL
 - pg
+- dotenv
 - Jest
 - Supertest
 
 ## Instalación
 
-1. Clonar el repositorio.
-2. Instalar las dependencias:
+1. Clonar el repositorio:
+
+```bash
+git clone https://github.com/Pablot97/api-rest-proyecto.git
+```
+
+2. Ingresar a la carpeta del proyecto:
+
+```bash
+cd api-rest-proyecto
+```
+
+3. Instalar las dependencias:
 
 ```bash
 npm install
 ```
 
-3. Crear una base de datos PostgreSQL llamada `api_rest`.
-4. Configurar las variables de entorno necesarias para la conexión a la base de datos.
-5. Ejecutar los archivos SQL para crear las tablas y cargar los datos iniciales.
+4. Crear una base de datos PostgreSQL llamada `api_rest`.
+
+5. Configurar las variables de entorno utilizando `.env.example` como referencia. Crear un archivo `.env` con los datos de conexión a PostgreSQL.
+
+## Variables de entorno
+
+La aplicación utiliza las siguientes variables para conectarse a PostgreSQL:
+
+```env
+DB_HOST=localhost
+DB_PORT=5432
+DB_USER=postgres
+DB_PASSWORD=tu_contraseña
+DB_NAME=api_rest
+```
+
+No subir el archivo `.env` a GitHub, ya que contiene información privada.
+
+El repositorio incluye `.env.example` como plantilla de configuración.
+
+## Configuración de la base de datos
+
+Antes de iniciar la aplicación, es necesario tener PostgreSQL en funcionamiento y crear una base de datos llamada `api_rest`.
+
+Ejecutar los scripts SQL desde la raíz del proyecto y en el siguiente orden:
+
+1. `sql/setup.sql`: crea las tablas y relaciones necesarias.
+2. `sql/seed.sql`: carga los datos iniciales.
+
+La aplicación utiliza dos tablas principales:
+
+- **Authors:** almacena autores con nombre, email, biografía y fecha de creación.
+- **Posts:** almacena publicaciones relacionadas con un autor, con título, contenido, estado de publicación y fecha de creación.
 
 ## Ejecución
 
 Para iniciar el servidor:
 
 ```bash
-node app.js
+npm start
 ```
 
 El servidor funciona en:
 
-`http://localhost:3000`
+http://localhost:3000
 
 ## Endpoints
 
@@ -61,22 +105,23 @@ El servidor funciona en:
 | PUT | `/posts/:id` | Actualizar una publicación |
 | DELETE | `/posts/:id` | Eliminar una publicación |
 
-## Pruebas
+## Pruebas automatizadas
 
-Para ejecutar las pruebas automatizadas:
+Para ejecutar las pruebas:
 
 ```bash
 npm test
 ```
 
-Las pruebas utilizan Jest y Supertest.
+Las pruebas utilizan Jest y Supertest para verificar el funcionamiento de los endpoints, las validaciones y el manejo de errores.
 
-## Base de datos
+Es necesario tener PostgreSQL en funcionamiento y la base de datos configurada antes de ejecutar los tests.
 
-La aplicación utiliza PostgreSQL y administra dos entidades:
+## Seguridad
 
-- **Authors:** autores con nombre, email, biografía y fecha de creación.
-- **Posts:** publicaciones relacionadas con un autor, con título, contenido, estado de publicación y fecha de creación.
+- Las consultas SQL utilizan parámetros para evitar la inyección SQL.
+- Las variables de entorno se utilizan para proteger los datos de conexión.
+- El archivo `.env` está excluido del repositorio mediante `.gitignore`.
 
 ## Autor
 
