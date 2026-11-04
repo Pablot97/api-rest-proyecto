@@ -20,21 +20,21 @@ El proyecto implementa operaciones CRUD, validaciones, manejo de errores y prueb
 
 1. Clonar el repositorio:
 
-```bash
-git clone https://github.com/Pablot97/api-rest-proyecto.git
-```
+   ```bash
+   git clone https://github.com/Pablot97/api-rest-proyecto.git
+   ```
 
 2. Ingresar a la carpeta del proyecto:
 
-```bash
-cd api-rest-proyecto
-```
+   ```bash
+   cd api-rest-proyecto
+   ```
 
 3. Instalar las dependencias:
 
-```bash
-npm install
-```
+   ```bash
+   npm install
+   ```
 
 4. Crear una base de datos PostgreSQL llamada `api_rest`.
 
@@ -80,7 +80,7 @@ npm start
 
 El servidor funciona en:
 
-http://localhost:3000
+`http://localhost:3000`
 
 ## Endpoints
 
@@ -131,32 +131,35 @@ La inteligencia artificial se utilizó como asistente, mientras que la implement
 
 ### Prompts utilizados
 
-
 **1. Consultas a la base de datos**
 
 Prompt:
+
 "Explicame cómo utilizar consultas SQL parametrizadas con PostgreSQL en Node.js y cómo evitar concatenar datos directamente en las consultas."
 
 Influencia en el proyecto:
+
 Ayudó a implementar consultas parametrizadas, mejorando la seguridad y evitando posibles vulnerabilidades de inyección SQL.
 
 **2. Validaciones y manejo de errores**
 
 Prompt:
+
 "¿Cómo puedo implementar validaciones de datos y un manejo centralizado de errores en una API desarrollada con Express?"
 
 Influencia en el proyecto:
-Contribuyó a incorporar validaciones de campos obligatorios, control de emails duplicados, respuestas HTTP adecuadas y un middleware para centralizar errores.
 
+Contribuyó a incorporar validaciones de campos obligatorios, control de emails duplicados, respuestas HTTP adecuadas y un middleware para centralizar errores.
 
 **3. Pruebas automatizadas**
 
 Prompt:
+
 "Explicame cómo utilizar Jest y Supertest para probar los endpoints de una API REST desarrollada con Express."
 
 Influencia en el proyecto:
-Ayudó a desarrollar pruebas automatizadas para verificar las respuestas de los endpoints, las validaciones y el manejo de errores.
 
+Ayudó a desarrollar pruebas automatizadas para verificar las respuestas de los endpoints, las validaciones y el manejo de errores.
 
 ### Reflexión final
 
@@ -168,27 +171,32 @@ Su utilización no reemplazó la comprensión del proyecto ni las pruebas realiz
 
 La API REST fue desplegada utilizando Railway, una plataforma que permite alojar aplicaciones y bases de datos en la nube.
 
+**URL pública de la API:**
+
+https://api-rest-proyecto-production-5616.up.railway.app
+
+La API dispone de los siguientes endpoints para realizar consultas:
+
+- [Consultar autores](https://api-rest-proyecto-production-5616.up.railway.app/authors)
+- [Consultar publicaciones](https://api-rest-proyecto-production-5616.up.railway.app/posts)
+- [Consultar publicaciones de un autor](https://api-rest-proyecto-production-5616.up.railway.app/posts/author/1)
+
 ### Pasos del despliegue
 
 1. Crear una cuenta en [Railway](https://railway.com/).
-
 2. Conectar la cuenta de GitHub con Railway.
-
 3. Seleccionar el repositorio `api-rest-proyecto` para crear un nuevo servicio.
-
 4. Agregar una base de datos PostgreSQL dentro del proyecto de Railway.
-
 5. Configurar las variables de entorno necesarias para establecer la conexión entre la aplicación y PostgreSQL.
-
 6. Verificar que el servicio de la API utilice el comando de inicio `npm start`.
-
 7. Crear las tablas `authors` y `posts` en la base de datos de Railway mediante los scripts SQL del proyecto.
-
 8. Generar un dominio público para acceder a la API desde internet.
 
 ### Verificación del despliegue
 
-Una vez finalizado el despliegue, se realizaron pruebas utilizando Postman para comprobar el funcionamiento de los endpoints
+Una vez finalizado el despliegue, se realizaron pruebas utilizando Postman para comprobar el funcionamiento de los endpoints.
+
+Se verificaron operaciones de creación, consulta, actualización y eliminación de autores y publicaciones.
 
 ## Autor
 
