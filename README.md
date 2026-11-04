@@ -164,6 +164,32 @@ La inteligencia artificial fue utilizada como una herramienta complementaria de 
 
 Su utilización no reemplazó la comprensión del proyecto ni las pruebas realizadas, sino que sirvió como apoyo durante el proceso de aprendizaje y desarrollo.
 
+## Despliegue en Railway
+
+La API REST fue desplegada utilizando Railway, una plataforma que permite alojar aplicaciones y bases de datos en la nube.
+
+### Pasos del despliegue
+
+1. Crear una cuenta en [Railway](https://railway.com/).
+
+2. Conectar la cuenta de GitHub con Railway.
+
+3. Seleccionar el repositorio `api-rest-proyecto` para crear un nuevo servicio.
+
+4. Agregar una base de datos PostgreSQL dentro del proyecto de Railway.
+
+5. Configurar las variables de entorno necesarias para establecer la conexión entre la aplicación y PostgreSQL.
+
+6. Verificar que el servicio de la API utilice el comando de inicio `npm start`.
+
+7. Crear las tablas `authors` y `posts` en la base de datos de Railway mediante los scripts SQL del proyecto.
+
+8. Generar un dominio público para acceder a la API desde internet.
+
+### Verificación del despliegue
+
+Una vez finalizado el despliegue, se realizaron pruebas utilizando Postman para comprobar el funcionamiento de los endpoints
+
 ## Autor
 
 Proyecto realizado como parte del Proyecto Integrador 2.
