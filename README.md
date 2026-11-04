@@ -123,6 +123,47 @@ Es necesario tener PostgreSQL en funcionamiento y la base de datos configurada a
 - Las variables de entorno se utilizan para proteger los datos de conexión.
 - El archivo `.env` está excluido del repositorio mediante `.gitignore`.
 
+## Uso de Inteligencia Artificial
+
+Durante el desarrollo de este proyecto se utilizó ChatGPT como herramienta de apoyo para el aprendizaje, la resolución de problemas y la mejora del código.
+
+La inteligencia artificial se utilizó como asistente, mientras que la implementación, ejecución y comprobación de los cambios se realizaron sobre el proyecto.
+
+### Prompts utilizados
+
+
+**1. Consultas a la base de datos**
+
+Prompt:
+"Explicame cómo utilizar consultas SQL parametrizadas con PostgreSQL en Node.js y cómo evitar concatenar datos directamente en las consultas."
+
+Influencia en el proyecto:
+Ayudó a implementar consultas parametrizadas, mejorando la seguridad y evitando posibles vulnerabilidades de inyección SQL.
+
+**2. Validaciones y manejo de errores**
+
+Prompt:
+"¿Cómo puedo implementar validaciones de datos y un manejo centralizado de errores en una API desarrollada con Express?"
+
+Influencia en el proyecto:
+Contribuyó a incorporar validaciones de campos obligatorios, control de emails duplicados, respuestas HTTP adecuadas y un middleware para centralizar errores.
+
+
+**3. Pruebas automatizadas**
+
+Prompt:
+"Explicame cómo utilizar Jest y Supertest para probar los endpoints de una API REST desarrollada con Express."
+
+Influencia en el proyecto:
+Ayudó a desarrollar pruebas automatizadas para verificar las respuestas de los endpoints, las validaciones y el manejo de errores.
+
+
+### Reflexión final
+
+La inteligencia artificial fue utilizada como una herramienta complementaria de aprendizaje y desarrollo. Permitió resolver dudas, comprender conceptos nuevos, detectar errores y mejorar la organización del código.
+
+Su utilización no reemplazó la comprensión del proyecto ni las pruebas realizadas, sino que sirvió como apoyo durante el proceso de aprendizaje y desarrollo.
+
 ## Autor
 
 Proyecto realizado como parte del Proyecto Integrador 2.
